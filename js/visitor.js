@@ -1,4 +1,4 @@
-let count = 0;
+let count = 14598;
 let intervalId;
 let speed = 100; // Time in milliseconds between count increments
 
@@ -12,7 +12,7 @@ intervalId = setInterval(() => {
   updateCountDisplay();
 
   // Check if count reaches 100, then slow down the counting
-  if (count >= 784) {
+  if (count >= 14598) {
     clearInterval(intervalId);
     speed = 10000; // Change the speed to a slower value (e.g., 500ms)
     intervalId = setInterval(() => {
@@ -22,7 +22,7 @@ intervalId = setInterval(() => {
   }
 }, speed);
 
-let count2 = 0;
+let count2 = 11952;
 let intervalId2;
 let speed2 = 100; // Time in milliseconds between count increments
 
@@ -36,7 +36,7 @@ intervalId2 = setInterval(() => {
   updateCountDisplay2();
 
   // Check if count reaches 100, then slow down the counting
-  if (count2 >= 525) {
+  if (count2 >= 11952) {
     clearInterval(intervalId2);
     speed2 = 100000; // Change the speed to a slower value (e.g., 500ms)
     intervalId2 = setInterval(() => {
