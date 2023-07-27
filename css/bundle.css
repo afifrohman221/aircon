@@ -344,11 +344,11 @@ body {
 }
 
 .two {
-  background-image: url(../images/main-slider/2.jpg);
+  background-image: url(../images/main-slider/1.png);
 }
 
 .three {
-  background-image: url(../images/main-slider/2.jpg);
+  background-image: url(../images/main-slider/1.png);
 }
 
 .owl-item .slide-animation * {
@@ -1067,7 +1067,7 @@ body {
   color: #ffffff;
 }
 .button-primary:hover {
-  background: #cf0427;
+  background: #007bff;
 }
 
 .button-outline-secondary {
@@ -3762,7 +3762,7 @@ body {
   color: #ffffff;
 }
 .coupon-continue-checkout .button-area .checkout:hover {
-  background: #cf0427;
+  background: #007bff;
 }
 
 /* Cart-Empty-Styles & Wishlist Page */

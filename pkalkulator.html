@@ -40,6 +40,48 @@
     <link rel="stylesheet" href="css/utility.css" />
     <!-- Main -->
     <link rel="stylesheet" href="css/bundle.css" />
+    <script>
+      function checkAnswer() {
+        showNextQuestion();
+      }
+
+      function showNextQuestion() {
+        const container = document.getElementById("hasil");
+        container.innerHTML = `
+        <div class="track-order-wrapper" id="hasil">
+          <h2 class="track-order-h2 u-s-m-b-20 text-center">PK Kalkulator</h2>
+          <h6 class="track-order-h6 u-s-m-b-30">Hasil Perhitungan</h6>
+          <div class="facet-filter-by-price">
+            <form class="facet-form" action="#" method="post">
+              <!-- Final-Result -->
+              <div class="amount-hasil clearfix">
+                <h1 class="price-from text-center" id="hasil-terakhir"> m<sup>2</sup></h1>
+              </div>
+              <div class="amount-result clearfix">
+                <div class="price-from">4 m<sup>2</sup></div>
+                <div class="price-to">100 m<sup>2</sup></div>
+              </div>
+              <!-- Final-Result /- -->
+              <!-- Range-Slider  -->
+              <div class="price-filter"></div>
+              <!-- Range-Slider /- -->
+              <!-- Range-Manipulator -->
+              <div
+                class="price-slider-range"
+                data-min="4"
+                data-max="100"
+                data-default-low="4"
+                data-default-high="100"
+                data-currency=""
+              ></div>
+              <!-- Range-Manipulator /- -->
+              <button type="submit" class="button button-primary">OK</button>
+            </form>
+          </div>
+        </div>
+        `;
+      }
+    </script>
   </head>
 
   <body>
@@ -246,7 +288,9 @@
               <form class="facet-form" action="#" method="post">
                 <!-- Final-Result -->
                 <div class="amount-hasil clearfix">
-                  <h1 class="price-from text-center">4 m<sup>2</sup></h1>
+                  <h1 class="price-from text-center" id="hasil-terakhir">
+                    4 m<sup>2</sup>
+                  </h1>
                 </div>
                 <div class="amount-result clearfix">
                   <div class="price-from">4 m<sup>2</sup></div>
@@ -266,10 +310,21 @@
                   data-currency=""
                 ></div>
                 <!-- Range-Manipulator /- -->
-                <button type="submit" class="button button-primary">OK</button>
               </form>
+              <button
+                type="submit"
+                class="button button-primary"
+                onclick="checkAnswer()"
+              >
+                OK
+              </button>
             </div>
           </div>
+        </div>
+      </div>
+      <div class="page-track-order u-s-p-t-80">
+        <div class="container">
+          <div class="track-order-wrapper" id="hasil"></div>
         </div>
       </div>
       <!-- Footer -->

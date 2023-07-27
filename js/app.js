@@ -681,6 +681,7 @@ $(function () {
   /**
    * Price Range Slider
    */
+  let lastResult = null;
   const priceRangeSlider = function () {
     $(".price-slider-range").each(function () {
       // Get original minimum data value
@@ -703,15 +704,23 @@ $(function () {
         values: [defaultLow],
         slide: function (event, ui) {
           let result =
-            '<h1 class="price-from text-center">' +
-            currecyUnit +
+            '<h1 class="price-from text-center" id="hasil-terakhir">' +
             ui.values[0] +
             " m<sup>2</sup></h1>\n";
+          lastResult = ui.values[0];
           $instance.parent().find(".amount-hasil").html(result);
+          console.log(lastResult);
         },
       });
     });
+    tampilkanHasilTerakhir();
   };
+
+  function tampilkanHasilTerakhir() {
+    // Memasukkan nilai lastUiValue ke elemen dengan id "hasil-terakhir"
+    document.getElementById("hasil-terakhir").innerHTML =
+      lastUiValue + " m<sup>2</sup>";
+  }
   /**
    * Attach Click event to Grid & List
    */
