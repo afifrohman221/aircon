@@ -681,46 +681,40 @@ $(function () {
   /**
    * Price Range Slider
    */
-  let lastResult = null;
-  const priceRangeSlider = function () {
-    $(".price-slider-range").each(function () {
-      // Get original minimum data value
-      let queryMin = parseFloat($(this).data("min"));
-      // Get original maximum data value
-      let queryMax = parseFloat($(this).data("max"));
-      // Get currency unit
-      let currecyUnit = $(this).data("currency");
-      // Get default minimum data value
-      let defaultLow = parseFloat($(this).data("default-low"));
-      // Get default maximum data value
-      let defaultHigh = parseFloat($(this).data("default-high"));
-      // Taking this
-      let $instance = $(this);
-      // Plugin invocation
-      $(".price-filter").slider({
-        // range: true,
-        min: queryMin,
-        max: queryMax,
-        values: [defaultLow],
-        slide: function (event, ui) {
-          let result =
-            '<h1 class="price-from text-center" id="hasil-terakhir">' +
-            ui.values[0] +
-            " m<sup>2</sup></h1>\n";
-          lastResult = ui.values[0];
-          $instance.parent().find(".amount-hasil").html(result);
-          console.log(lastResult);
-        },
-      });
-    });
-    tampilkanHasilTerakhir();
-  };
+  // let lastResult = null;
+  // const priceRangeSlider = function () {
+  //   $(".price-slider-range").each(function () {
+  //     // Get original minimum data value
+  //     let queryMin = parseFloat($(this).data("min"));
+  //     // Get original maximum data value
+  //     let queryMax = parseFloat($(this).data("max"));
+  //     // Get currency unit
+  //     let currecyUnit = $(this).data("currency");
+  //     // Get default minimum data value
+  //     let defaultLow = parseFloat($(this).data("default-low"));
+  //     // Get default maximum data value
+  //     let defaultHigh = parseFloat($(this).data("default-high"));
+  //     // Taking this
+  //     let $instance = $(this);
+  //     // Plugin invocation
+  //     $(".price-filter").slider({
+  //       // range: true,
+  //       min: queryMin,
+  //       max: queryMax,
+  //       values: [defaultLow],
+  //       slide: function (event, ui) {
+  //         let result =
+  //           '<h1 class="price-from text-center" id="hasil-terakhir">' +
+  //           ui.values[0] +
+  //           " m<sup>2</sup></h1>\n";
+  //         lastResult = ui.values[0];
+  //         $instance.parent().find(".amount-hasil").html(result);
+  //         return lastResult;
+  //       },
+  //     });
+  //   });
+  // };
 
-  function tampilkanHasilTerakhir() {
-    // Memasukkan nilai lastUiValue ke elemen dengan id "hasil-terakhir"
-    document.getElementById("hasil-terakhir").innerHTML =
-      lastUiValue + " m<sup>2</sup>";
-  }
   /**
    * Attach Click event to Grid & List
    */

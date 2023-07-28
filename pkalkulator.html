@@ -40,48 +40,6 @@
     <link rel="stylesheet" href="css/utility.css" />
     <!-- Main -->
     <link rel="stylesheet" href="css/bundle.css" />
-    <script>
-      function checkAnswer() {
-        showNextQuestion();
-      }
-
-      function showNextQuestion() {
-        const container = document.getElementById("hasil");
-        container.innerHTML = `
-        <div class="track-order-wrapper" id="hasil">
-          <h2 class="track-order-h2 u-s-m-b-20 text-center">PK Kalkulator</h2>
-          <h6 class="track-order-h6 u-s-m-b-30">Hasil Perhitungan</h6>
-          <div class="facet-filter-by-price">
-            <form class="facet-form" action="#" method="post">
-              <!-- Final-Result -->
-              <div class="amount-hasil clearfix">
-                <h1 class="price-from text-center" id="hasil-terakhir"> m<sup>2</sup></h1>
-              </div>
-              <div class="amount-result clearfix">
-                <div class="price-from">4 m<sup>2</sup></div>
-                <div class="price-to">100 m<sup>2</sup></div>
-              </div>
-              <!-- Final-Result /- -->
-              <!-- Range-Slider  -->
-              <div class="price-filter"></div>
-              <!-- Range-Slider /- -->
-              <!-- Range-Manipulator -->
-              <div
-                class="price-slider-range"
-                data-min="4"
-                data-max="100"
-                data-default-low="4"
-                data-default-high="100"
-                data-currency=""
-              ></div>
-              <!-- Range-Manipulator /- -->
-              <button type="submit" class="button button-primary">OK</button>
-            </form>
-          </div>
-        </div>
-        `;
-      }
-    </script>
   </head>
 
   <body>
@@ -95,15 +53,18 @@
             <nav>
               <ul class="primary-nav g-nav">
                 <li>
-                  <a class="text-white" href="tel:+111444989">
+                  <a class="text-white" href="tel:+621388622997">
                     <i class="fas fa-phone u-c-brand u-s-m-r-9"></i>
-                    Telephone:+111-444-989</a
+                    Telephone:0813-8862-2997</a
                   >
                 </li>
                 <li>
-                  <a class="text-white" href="mailto:contact@domain.com">
+                  <a
+                    class="text-white"
+                    href="mailto:ptairconteknikjaya899@gmail.com"
+                  >
                     <i class="fas fa-envelope u-c-brand u-s-m-r-9"></i>
-                    E-mail: contact@domain.com
+                    E-mail: ptairconteknikjaya899@gmail.com
                   </a>
                 </li>
               </ul>
@@ -313,15 +274,138 @@
               </form>
               <button
                 type="submit"
-                class="button button-primary"
+                class="button button-primary w-100 h-100"
                 onclick="checkAnswer()"
               >
-                OK
+                Hitung
               </button>
             </div>
           </div>
         </div>
       </div>
+      <script>
+        let lastResult = 4;
+        const priceRangeSlider = function () {
+          $(".price-slider-range").each(function () {
+            // Get original minimum data value
+            let queryMin = parseFloat($(this).data("min"));
+            // Get original maximum data value
+            let queryMax = parseFloat($(this).data("max"));
+            // Get currency unit
+            let currecyUnit = $(this).data("currency");
+            // Get default minimum data value
+            let defaultLow = parseFloat($(this).data("default-low"));
+            // Get default maximum data value
+            let defaultHigh = parseFloat($(this).data("default-high"));
+            // Taking this
+            let $instance = $(this);
+            // Plugin invocation
+            $(".price-filter").slider({
+              // range: true,
+              min: queryMin,
+              max: queryMax,
+              values: [defaultLow],
+              slide: function (event, ui) {
+                let result =
+                  '<h1 class="price-from text-center" id="hasil-terakhir">' +
+                  ui.values[0] +
+                  " m<sup>2</sup></h1>\n";
+                lastResult = ui.values[0];
+                $instance.parent().find(".amount-hasil").html(result);
+                console.log(lastResult);
+                return lastResult;
+              },
+            });
+          });
+        };
+
+        let dayaBtu;
+        function daya() {
+          dayaBtu = lastResult * lastResult;
+          return dayaBtu;
+        }
+
+        let pkKalkulator;
+        function totalPk() {
+          if (lastResult <= 10) {
+            pkKalkulator = "1/2";
+          } else if (lastResult <= 13) {
+            pkKalkulator = "3/4";
+          } else if (lastResult <= 17) {
+            pkKalkulator = "1";
+          } else if (lastResult <= 23) {
+            pkKalkulator = "1,5";
+          } else if (lastResult <= 34) {
+            pkKalkulator = "2";
+          } else if (lastResult <= 44) {
+            pkKalkulator = "2,5";
+          } else if (lastResult <= 50) {
+            pkKalkulator = "3";
+          } else if (lastResult <= 57) {
+            pkKalkulator = "3,5";
+          } else if (lastResult <= 67) {
+            pkKalkulator = "4";
+          } else if (lastResult <= 75) {
+            pkKalkulator = "4,5";
+          } else if (lastResult <= 83) {
+            pkKalkulator = "5";
+          } else if (lastResult <= 92) {
+            pkKalkulator = "5,5";
+          } else {
+            pkKalkulator = "6";
+          }
+          return pkKalkulator;
+        }
+
+        function checkAnswer() {
+          showNextQuestion();
+        }
+
+        function showNextQuestion() {
+          const container = document.getElementById("hasil");
+          container.innerHTML =
+            `
+          <div class="track-order-wrapper" id="hasil">
+            <h2 class="track-order-h2 u-s-m-b-20 text-center">PK Kalkulator</h2>
+            <h6 class="track-order-h6 u-s-m-b-30">Hasil Perhitungan</h6>
+            <div class="facet-filter-by-price">
+              <form class="facet-form" action="#" method="post">
+                <!-- Final-Result -->
+                <div class="amount-hasil clearfix">
+                  <h1 class="price-from text-center" id="hasil-terakhir">` +
+            lastResult +
+            ` m<sup>2</sup></h1>
+                </div>
+                <div class="amount-result clearfix">
+                  <div class="price-from">Daya : ` +
+            daya() +
+            ` Btu/h</div>
+                  <div class="price-to">Kebutuhan : ` +
+            totalPk() +
+            ` PK</div>
+                </div>
+                <!-- Final-Result /- -->
+                <!-- Range-Slider  -->
+                <div class="price-filter"></div>
+                <!-- Range-Slider /- -->
+                <!-- Range-Manipulator -->
+                <div
+                  class="price-slider-range"
+                  data-min="4"
+                  data-max="100"
+                  data-default-low="4"
+                  data-default-high="100"
+                  data-currency=""
+                ></div>
+                <!-- Range-Manipulator /- -->
+              </form>
+              <a href="product.html">
+              <button type="submit" class="button button-primary w-100 h-100">OK</button></a>
+            </div>
+          </div>
+          `;
+        }
+      </script>
       <div class="page-track-order u-s-p-t-80">
         <div class="container">
           <div class="track-order-wrapper" id="hasil"></div>
@@ -368,10 +452,19 @@
                       <a href="index.html">Home</a>
                     </li>
                     <li>
-                      <a href="about.html">About</a>
+                      <a href="product.html">Product</a>
                     </li>
                     <li>
-                      <a href="contact.html">Contact</a>
+                      <a href="pkalkulator.html">PK Kalkulator</a>
+                    </li>
+                    <li>
+                      <a href="recommend.html">Recommended AC</a>
+                    </li>
+                    <li>
+                      <a href="product.html">Pasang AC</a>
+                    </li>
+                    <li>
+                      <a href="lisensi.html">Lisensi</a>
                     </li>
                   </ul>
                 </div>
@@ -381,13 +474,16 @@
                   <h6>INFORMATION</h6>
                   <ul>
                     <li>
-                      <a href="store-directory.html">Categories Directory</a>
+                      <a href="about.html">Tentang Kami</a>
                     </li>
                     <li>
-                      <a href="wishlist.html">My Wishlist</a>
+                      <a href="contact.html">Kontak Kami</a>
                     </li>
                     <li>
-                      <a href="cart.html">My Cart</a>
+                      <a href="syarat.html">Syarat dan Ketentuan</a>
+                    </li>
+                    <li>
+                      <a href="cara-bayar.html">Cara Pembayaran</a>
                     </li>
                   </ul>
                 </div>
@@ -398,18 +494,22 @@
                   <ul>
                     <li>
                       <i class="fas fa-location-arrow u-s-m-r-9"></i>
-                      <span>819 Sugar Camp Road, West Concord, MN 55985</span>
+                      <span
+                        >Jl. Pangeran Tubagus Angke No.41, RT.5/RW.9, Angke,
+                        Kec. Tambora, Kota Jakarta Barat, Daerah Khusus Ibukota
+                        Jakarta 11330</span
+                      >
                     </li>
                     <li>
-                      <a href="tel:+923086561801">
+                      <a href="tel:+621388622997">
                         <i class="fas fa-phone u-s-m-r-9"></i>
-                        <span>+111-444-989</span>
+                        <span>0813-8862-2997</span>
                       </a>
                     </li>
                     <li>
-                      <a href="mailto:contact@domain.com">
+                      <a href="mailto:ptairconteknikjaya899@gmail.com">
                         <i class="fas fa-envelope u-s-m-r-9"></i>
-                        <span> contact@domain.com</span>
+                        <span> ptairconteknikjaya899@gmail.com</span>
                       </a>
                     </li>
                   </ul>
