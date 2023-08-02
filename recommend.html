@@ -51,17 +51,41 @@
           <h2 class="track-order-h2 u-s-m-b-20 text-center">
             Recommended AC
           </h2>
-          <h6 class="track-order-h6 u-s-m-b-30">PERTANYAAN2</h6>
+          <h6 class="track-order-h6 u-s-m-b-30">Kamu suka AC yang cepet dingin atau hemat listrik?</h6>
+            <div class="u-s-m-b-30">
+                <button type="submit" class="button button-primary w-100" onclick="checkAnswer2()">
+                  Cepat Dingin
+                </button>
+            </div>
+            <div class="u-s-m-b-30">
+                <button type="submit" class="button button-primary w-100" onclick="checkAnswer2()">
+                  Hemat Listrik
+                </button>
+            </div>
+        </div>
+        `;
+      }
+      function checkAnswer2() {
+        showNextQuestion2();
+      }
+      function showNextQuestion2() {
+        const container = document.getElementById("quiz");
+        container.innerHTML = `
+        <div class="track-order-wrapper" id="quiz" >
+          <h2 class="track-order-h2 u-s-m-b-20 text-center">
+            Recommended AC
+          </h2>
+          <h6 class="track-order-h6 u-s-m-b-30">Ac nya buat dipake di ruangan terbuka atau tertutup?</h6>
             <div class="u-s-m-b-30">
               <a href="pkalkulator.html">
-                <button type="submit" class="button button-primary w-100" onclick="checkAnswer()">
-                  3
+                <button type="submit" class="button button-primary w-100">
+                  Ruang Tertutup
                 </button></a>
             </div>
             <div class="u-s-m-b-30">
               <a href="pkalkulator.html">
-                <button type="submit" class="button button-primary w-100" onclick="checkAnswer()">
-                  4
+                <button type="submit" class="button button-primary w-100">
+                  Ruang Terbuka
                 </button></a>
             </div>
         </div>
@@ -239,23 +263,16 @@
             <h2 class="track-order-h2 u-s-m-b-20 text-center">
               Recommended AC
             </h2>
-            <h6 class="track-order-h6 u-s-m-b-30">PERTANYAAN</h6>
+            <h6 class="track-order-h6 u-s-m-b-30">
+              Mau tau rekomendasi AC yang cocok buat kamu?
+            </h6>
             <div class="u-s-m-b-30">
               <button
                 type="submit"
                 class="button button-primary w-100"
                 onclick="checkAnswer()"
               >
-                1
-              </button>
-            </div>
-            <div class="u-s-m-b-30">
-              <button
-                type="submit"
-                class="button button-primary w-100"
-                onclick="checkAnswer()"
-              >
-                3
+                Mau Dong
               </button>
             </div>
           </div>
