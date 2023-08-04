@@ -302,6 +302,7 @@
                       <button
                         class="button button-outline-secondary"
                         type="submit"
+                        onclick="sendWhatsAppMessage1()"
                       >
                         Beli Sekarang
                       </button>
@@ -763,6 +764,21 @@
       </style>
     </noscript>
     <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+    <script>
+      function sendWhatsAppMessage1() {
+        // Format the message with name and message content
+        var formattedMessage = "Hi, PT Aircon Tehnik Jaya";
+        // Encode the message for URL
+        var encodedMessage = encodeURIComponent(formattedMessage);
+
+        // Construct the WhatsApp link with the encoded message
+        var whatsappLink =
+          "https://wa.me/6281213632261/?text=" + encodedMessage;
+
+        // Open the WhatsApp link in a new tab
+        window.open(whatsappLink, "_blank");
+      }
+    </script>
     <script>
       window.ga = function () {
         ga.q.push(arguments);

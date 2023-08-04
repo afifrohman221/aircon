@@ -221,7 +221,7 @@
                       </label>
                       <input
                         type="text"
-                        id="contact-name"
+                        id="contact-name1"
                         class="text-field"
                         placeholder="Name"
                       />
@@ -233,7 +233,7 @@
                       </label>
                       <input
                         type="text"
-                        id="contact-email"
+                        id="contact-email1"
                         class="text-field"
                         placeholder="Email"
                       />
@@ -246,23 +246,25 @@
                     </label>
                     <input
                       type="text"
-                      id="contact-subject"
+                      id="contact-subject1"
                       class="text-field"
                       placeholder="Subject"
                     />
                   </div>
                   <div class="u-s-m-b-30">
                     <label for="contact-message">Message:</label>
-                    <textarea class="text-area" id="contact-message"></textarea>
+                    <textarea
+                      class="text-area"
+                      id="contact-message1"
+                    ></textarea>
                   </div>
-                  <div class="u-s-m-b-30">
-                    <button
-                      type="submit"
-                      class="button button-outline-secondary"
-                    >
-                      Send Message
-                    </button>
-                  </div>
+                  <button
+                    type="submit"
+                    class="button button-outline-secondary"
+                    onclick="sendWhatsAppMessage1()"
+                  >
+                    Send Message
+                  </button>
                 </form>
               </div>
             </div>
@@ -507,6 +509,35 @@
       </style>
     </noscript>
     <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+    <script>
+      function sendWhatsAppMessage1() {
+        var name = document.getElementById("contact-name1").value;
+        var message = document.getElementById("contact-message1").value;
+        var email = document.getElementById("contact-email1").value;
+        var subject = document.getElementById("contact-subject1").value;
+
+        // Format the message with name and message content
+        var formattedMessage =
+          "Hi, my name is " +
+          name +
+          " ( " +
+          email +
+          " ) " +
+          subject +
+          ". Hi, PT Aircon Tehnik Jaya : " +
+          message;
+
+        // Encode the message for URL
+        var encodedMessage = encodeURIComponent(formattedMessage);
+
+        // Construct the WhatsApp link with the encoded message
+        var whatsappLink =
+          "https://wa.me/6281213632261/?text=" + encodedMessage;
+
+        // Open the WhatsApp link in a new tab
+        window.open(whatsappLink, "_blank");
+      }
+    </script>
     <script>
       window.ga = function () {
         ga.q.push(arguments);
