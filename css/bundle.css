@@ -627,6 +627,18 @@ body {
   z-index: 999998;
 }
 
+.gif-container {
+  position: fixed;
+  bottom: 100px;
+  right: 5px;
+  z-index: 9999; /* Menempatkan gambar di atas semua komponen */
+}
+
+.gif-container img {
+  width: 100px;
+  height: 150px;
+}
+
 /* ScrollUp Custom */
 #topScroll {
   right: 24px;
@@ -645,7 +657,7 @@ body {
 @media (max-width: 991px) {
   /* Top Scroll Button */
   #topScroll {
-    bottom: 136px;
+    bottom: 30px;
   }
 }
 
