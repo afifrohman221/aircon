@@ -187,8 +187,10 @@ body {
     text-align: left;
   }
 
-  .slide1 {
-    flex: 1;
+  .slider-container1,
+  .slider-container2 {
+    width: 400px;
+    height: 200px;
   }
 
   .text1 {
