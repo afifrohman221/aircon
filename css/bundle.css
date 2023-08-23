@@ -4278,8 +4278,12 @@ body {
 
 @media (max-width: 768px) {
   .product-item2 {
-    flex-basis: 50%;
-    max-width: 50%;
+    flex-basis: 40%;
+    max-width: 40%;
+  }
+  .product-item3 {
+    flex-basis: 60%;
+    max-width: 60%;
   }
 }
 
