@@ -693,16 +693,28 @@ body {
   z-index: 999998;
 }
 
-.gif-container {
+.gif-container1 {
+  position: fixed;
+  bottom: 70px;
+  left: 5px;
+  z-index: 9999; /* Menempatkan gambar di atas semua komponen */
+}
+
+.gif-container1 img {
+  width: 130px;
+  height: 130px;
+}
+
+.gif-container2 {
   position: fixed;
   bottom: 100px;
   right: 5px;
   z-index: 9999; /* Menempatkan gambar di atas semua komponen */
 }
 
-.gif-container img {
-  width: 100px;
-  height: 150px;
+.gif-container2 img {
+  width: 80px;
+  height: 80px;
 }
 
 /* ScrollUp Custom */
